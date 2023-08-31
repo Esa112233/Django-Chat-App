@@ -5,25 +5,20 @@
 <div class="text-center">
     <h1>{{room.name}}</h1>
   </div>
-<div class="d-flex justify-content-center p-3 mb-5 mt-5" style="height: auto;">
+<div class="d-flex flex-column align-items-center p-3 mb-5 mt-5" style="height: auto;">
   <div class="bg-white rounded w-50" id="chat-messages">
 
-    <div class="bg-dark-subtle m-3 rounded p-2">
-        <p class="fw-bold">Esa</p>
-        <p>Hello</p>  
-    </div>
+    
+        {% for message in messages %}
+        <div class="bg-dark-subtle m-3 rounded p-2">
+        <div class="bg-dark-subtle m-3 rounded p-2">;
+          <p class="fw-bold"> {{message.user.username}} </p>
+          <p>{{message.content}}</p>
+        </div>
+        </div>
+        {%endfor%}
 
-    <div class="bg-dark-subtle m-3 rounded p-2">
-      <p class="fw-bold">Esa</p>
-      <p>Hello</p>  
-  </div>
-
-  <div class="bg-dark-subtle m-3 rounded p-2">
-    <p class="fw-bold">Esa</p>
-    <p>Hello</p>  
-</div>
-
-  </div>
+  
 </div>
 
 <div class="d-flex justify-content-center p-3 mb-5 mt-5" style="height: auto;">
