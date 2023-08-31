@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{%block title%} {%endblock%} Django Chat App</title>
+    <style> 
+    .custom-bg{
+      background-color: lightgreen;
+    }
+    .signupid{
+      text-decoration: none;
+    }
+    .formSignup{
+      width: 25%;
+    }
+    .moveSignupDown{
+      margin-top: 5%;
+    }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body class="custom-bg">
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <div class="nav-item">
+          {% if request.user.is_authenticated %}
+            <a class="text-white hover:text-black-200 signupid" href="/rooms/">Rooms</a>
+            <a href="/logout/" class="signupid py-3 rounded-xl text-white text decoration:none">Logout</a>
+
+          {% else %}
+            <a class="text-white hover:text-black-200 signupid" href="/login/">login</a>
+            <a href="/signup" class="signupid py-3 rounded-xl text-white text decoration:none">Signup</a>
+          {%endif%}
+        </div>
+        
+      </div>
+    </nav>
+    {%block content%} {%endblock%}
+
+    {%block scripts%}
+
+    {%endblock%}
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>

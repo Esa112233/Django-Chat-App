@@ -1,0 +1,20 @@
+{% extends 'Center/base.html'%}
+
+{%block title%} Welcome | {%endblock%}
+{%block content%}
+<div class="text-center">
+    <h1>Rooms</h1>
+  </div>
+
+
+  <div class="d-flex flex-row">
+    {%for room in rooms%}
+    <div>
+      <div>
+        <h2>{{room.name}}</h2>
+        <a href="{% url 'room' room.slug %}">Join</a>
+      </div>
+    {%endfor%}
+  </div>
+</div>
+{%endblock%}

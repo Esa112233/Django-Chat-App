@@ -1,0 +1,62 @@
+{% extends 'Center/base.html'%}
+
+{%block title%} {{room.name}} | {%endblock%}
+{%block content%}
+<div class="text-center">
+    <h1>{{room.name}}</h1>
+  </div>
+<div class="d-flex justify-content-center p-3 mb-5 mt-5" style="height: auto;">
+  <div class="bg-white rounded w-50" id="chat-messages">
+
+    <div class="bg-dark-subtle m-3 rounded p-2">
+        <p class="fw-bold">Esa</p>
+        <p>Hello</p>  
+    </div>
+
+    <div class="bg-dark-subtle m-3 rounded p-2">
+      <p class="fw-bold">Esa</p>
+      <p>Hello</p>  
+  </div>
+
+  <div class="bg-dark-subtle m-3 rounded p-2">
+    <p class="fw-bold">Esa</p>
+    <p>Hello</p>  
+</div>
+
+  </div>
+</div>
+
+<div class="d-flex justify-content-center p-3 mb-5 mt-5" style="height: auto;">
+  <form action="." method="post" class="d-flex">
+    {%csrf_token%}
+    <input type="text" name="content" class="d-flex" id="chat-message-input" placeholder="Your message...">
+    <button class="rounded text-white bg-dark-subtle" id="chat-message-submit">Submit</button>
+  </form>
+</div>
+{%endblock%}
+
+{%block scripts%}
+{{room.slug|json_script:"json-roomname"}}
+{{ request.user.username|json_script:"json-username"}}
+
+<script>
+  const roomName = JSON.parse(document.getElementById('json-roomname').textContent)
+  const usernameName = JSON.parse(document.getElementById('json-username').textContent)
+const chatSocket = new WebSocket(
+  'ws://'
+  + window.location.host
+  + '/ws/'
+  + roomName
+  + '/'
+);
+
+chatSocket.onmessage = function(e) {
+  console.log('onmessage')
+}
+
+chatSocket.oneclose = function(e){
+  console.log('onclose')
+}
+</script>
+
+{%endblock%}
