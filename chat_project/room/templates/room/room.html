@@ -41,8 +41,8 @@
 
 <script>
   const roomName = JSON.parse(document.getElementById('json-roomname').textContent)
-  const usernameName = JSON.parse(document.getElementById('json-username').textContent)
-const chatSocket = new WebSocket(
+  const username = JSON.parse(document.getElementById('json-username').textContent)
+  const chatSocket = new WebSocket(
   'ws://'
   + window.location.host
   + '/ws/'
@@ -52,10 +52,39 @@ const chatSocket = new WebSocket(
 
 chatSocket.onmessage = function(e) {
   console.log('onmessage')
+  const data = JSON.parse(e.data);
+
+  if (data.message){
+    let html = '<div class="bg-dark-subtle m-3 rounded p-2">';
+    html += '<p class="fw-bold">Esa' + data.username + '</p>';
+    html += '<p>' + data.message + '</p></div>';
+
+    document.querySelector('#chat-messages').innerHTML += html;
+
+
+    }else{
+      alert('the message was empty')
+
+  }
 }
 
-chatSocket.oneclose = function(e){
+
+
+chatSocket.onclose = function(e){
   console.log('onclose')
+}
+
+document.querySelector('#chat-message-submit').onclick = function(e){
+  e.preventDefault();
+  const messageInputDom = document.querySelector('#chat-message-input');
+  const message = messageInputDom.value;
+  chatSocket.send(JSON.stringify({
+    'message': message,
+    'username': username,
+    'room': roomName
+  }));
+  messageInputDom.value = '';
+  return false;
 }
 </script>
 
