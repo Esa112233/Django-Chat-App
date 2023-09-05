@@ -20,9 +20,6 @@ Django Chat Project is a real-time chat application built using Django and WebSo
 - **Real-time Messaging:** Instantaneous message delivery and receipt using WebSockets.
 - **Message History:** View the 25 most recent messages in each chat room.
 
-## Demo
-
-You can check out a live demo of the Django Chat Project [here](https://your-demo-link.com). <!-- Optional: Add a link to your live demo -->
 
 ## Requirements
 
@@ -37,7 +34,33 @@ Before you begin, ensure you have met the following requirements:
 Follow these steps to set up the Django Chat Project locally:
 
 1. Clone the repository to your local machine:
-2. ```bash
-   git clone https://github.com/yourusername/django-chat-project.git
-   cd django-chat-project
+    ```bash
+    git clone https://github.com/yourusername/django-chat-project.git
+    cd django-chat-project
+    ```
+2. __Install project dependencies:__
+    ```bash
+    pip install -r requirements.txt
+    ```
+3. __Apply database migrations:__
+   ```bash
+   python manage.py migrate
    ```
+4. __Create a superuser account for administration:__
+    ```bash
+    python manage.py createsuperuser
+    ```
+5. __Start the development server:__
+    ```bash
+        python manage.py runserver
+    ```
+    The Django Chat Project should now be running locally. Access it in your web browser at __http://127.0.0.1:8000/__.
+
+## **Usage**
+
+1. Visit the application in your web browser.
+2. Sign up for a new account or log in with an existing one.
+3. Join an existing room
+4. Start chatting with other users in real-time.
+
+Thank you for choosing QuickChat . We hope you find it useful for your real-time chat needs!
