@@ -1,7 +1,7 @@
 
 # QuickChat (Live Chat App)
 
-QuicjChat is a real-time chat application built using Django and WebSockets. It allows users to join existing rooms and engage in live conversations. This app is perfect if you are looking to make friends or talk to random people online!
+QuickChat is a real-time chat application built using Django and WebSockets. It allows users to join existing rooms and engage in live conversations. This app is perfect if you are looking to make friends or talk to random people online!
 
 ## Table of Contents
 
