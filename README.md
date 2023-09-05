@@ -37,3 +37,7 @@ Before you begin, ensure you have met the following requirements:
 Follow these steps to set up the Django Chat Project locally:
 
 1. Clone the repository to your local machine:
+2. ```bash
+   git clone https://github.com/yourusername/django-chat-project.git
+   cd django-chat-project
+   ```
