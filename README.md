@@ -10,8 +10,6 @@ Django Chat Project is a real-time chat application built using Django and WebSo
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
