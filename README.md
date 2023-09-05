@@ -1,5 +1,5 @@
 
-# QuickChat (Chat App)
+# QuickChat (Live Chat App)
 
 Django Chat Project is a real-time chat application built using Django and WebSockets. It allows users to join existing rooms and engage in live conversations.
 
